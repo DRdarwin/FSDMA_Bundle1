@@ -21,7 +21,7 @@ class AppPrimaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: isDisabled ? null : onPressed,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(
           const EdgeInsets.all(16),
         ),
         backgroundColor:
@@ -31,13 +31,13 @@ class AppPrimaryButton extends StatelessWidget {
     );
   }
 
-  MaterialStateProperty<Color> primaryButtonBackground(BuildContext context) => MaterialStateProperty.resolveWith(
+  WidgetStateProperty<Color> primaryButtonBackground(BuildContext context) => WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.disabled)) {
+          if (states.contains(WidgetState.disabled)) {
             return context.theme.colorScheme.onSurface.withOpacity(0.12);
-          } else if (states.contains(MaterialState.hovered)) {
+          } else if (states.contains(WidgetState.hovered)) {
             return context.colorScheme.primary;
-          } else if (states.contains(MaterialState.pressed)) {
+          } else if (states.contains(WidgetState.pressed)) {
             return ColorPalette.primary40;
           } else {
             return context.colorScheme.primary;
@@ -45,13 +45,13 @@ class AppPrimaryButton extends StatelessWidget {
         },
       );
 
-  MaterialStateProperty<Color> errorButtonBackground(BuildContext context) => MaterialStateProperty.resolveWith(
+  WidgetStateProperty<Color> errorButtonBackground(BuildContext context) => WidgetStateProperty.resolveWith(
         (states) {
-          if (states.contains(MaterialState.disabled)) {
+          if (states.contains(WidgetState.disabled)) {
             return context.theme.colorScheme.onSurface.withOpacity(0.12);
-          } else if (states.contains(MaterialState.hovered)) {
+          } else if (states.contains(WidgetState.hovered)) {
             return ColorPalette.error50;
-          } else if (states.contains(MaterialState.pressed)) {
+          } else if (states.contains(WidgetState.pressed)) {
             return ColorPalette.error30;
           } else {
             return ColorPalette.error40;

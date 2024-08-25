@@ -5,34 +5,32 @@ import 'package:driver_flutter/core/presentation/wizard_steps/wizard_steps.dart'
 import 'package:driver_flutter/features/auth/domain/entities/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 ElevatedButton.icon(
-  onPressed: () {
+  onPressed = () {
     // Handle Google Sign-In
     _handleGoogleSignIn();
   },
-  icon: Image.asset(
+  icon = Image.asset(
     'assets/google_icon.png',
     height: 24.0,
     width: 24.0,
   ),
-  label: Text('Sign in with Google'),
+  label = const Text('Sign in with Google'),
 ),
 
 
 ElevatedButton.icon(
-  onPressed: () {
+  onPressed = () {
     // Handle Apple Sign-In
     _handleAppleSignIn();
   },
-  icon: Icon(
+  icon = const Icon(
     Icons.apple,
     color: Colors.black,
     size: 24.0,
   ),
-  label: Text('Sign in with Apple'),
+  label = const Text('Sign in with Apple'),
 ),
 
 import 'package:flutter_common/core/color_palette/color_palette.dart';

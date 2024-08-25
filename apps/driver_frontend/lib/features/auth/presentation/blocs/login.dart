@@ -15,7 +15,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../domain/entities/verify_otp_response.dart';
 import '../../domain/repositories/auth_repository.dart';
-import ''package:flutter_common/core/themetheme.dart'; // Імпортуємо тему, щоб використати її в коді
+package:flutter_common/core/themetheme.dart'; // Імпортуємо тему, щоб використати її в коді
 
 part 'login.freezed.dart';
 part 'login.g.dart';
