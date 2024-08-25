@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:driver_flutter/config/locator/locator.dart';
 import 'package:driver_flutter/core/blocs/auth_bloc.dart';
 import 'package:driver_flutter/core/blocs/location.dart';
+import 'package:driver_flutter/core/extensions/extensions.dart';
 import 'package:driver_flutter/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:driver_flutter/config/locator/locator.dart';
-import 'package:driver_flutter/core/extensions/extensions.dart';
 import 'package:flutter_common/core/presentation/snackbar/snackbar.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 orElse: () => false,
               ),
               listener: (context, state) {
-                FlutterRingtonePlayer.play(
+                FlutterRingtonePlayer().play(
                   fromAsset: "assets/notification.mp3",
                   looping: false,
                   volume: 1.0,

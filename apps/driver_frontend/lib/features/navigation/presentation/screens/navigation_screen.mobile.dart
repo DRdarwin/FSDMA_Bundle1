@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, StatelessWidget, Widget;
 
 class NavigationScreenMobile extends StatelessWidget {
   final Widget child;

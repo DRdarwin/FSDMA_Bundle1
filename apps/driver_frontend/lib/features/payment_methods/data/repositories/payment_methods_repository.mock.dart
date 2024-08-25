@@ -1,15 +1,12 @@
-import 'package:dartz/dartz.dart';
-
-import 'package:driver_flutter/core/error/failure.dart';
-
-import 'package:flutter_common/core/entities/payment_gateway.dart';
-
+import 'package:dartz/dartz.dart' show Either, Right;
+import 'package:driver_flutter/core/error/failure.dart' show Failure;
+import 'package:flutter_common/core/entities/payment_gateway.dart' show PaymentGatewayEntity;
 import 'package:flutter_common/core/entities/saved_payment_method.dart';
 import 'package:flutter_common/core/enums/card_type.dart';
-import 'package:flutter_common/core/enums/gateway_link_method.dart';
+import 'package:flutter_common/core/enums/gateway_link_method.dart' show GatewayLinkMethod;
+import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/payment_methods_repository.dart';
-import 'package:injectable/injectable.dart';
 
 @dev
 @LazySingleton(as: PaymentMethodsRepository)

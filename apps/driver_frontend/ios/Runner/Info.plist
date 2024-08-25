@@ -118,5 +118,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>com.apple.developer.applesignin</key>
+    <array>
+        <string>Default</string>
+    </array>
+    <key>com.apple.developer.team-identifier</key>
+    <string>{team_id}</string>
+    <key>com.apple.developer.authentication-services.appleid</key>
+    <string>{key_id}</string>
 </dict>
 </plist>

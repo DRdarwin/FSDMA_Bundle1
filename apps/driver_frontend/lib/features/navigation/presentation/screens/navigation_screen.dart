@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:driver_flutter/config/locator/locator.dart';
 import 'package:driver_flutter/core/blocs/auth_bloc.dart';
 import 'package:driver_flutter/core/extensions/extensions.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'navigation_screen.desktop.dart';
 import 'navigation_screen.mobile.dart';

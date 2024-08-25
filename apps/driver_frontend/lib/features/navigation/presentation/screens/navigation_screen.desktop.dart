@@ -1,14 +1,14 @@
 import 'dart:ui';
 
+import 'package:driver_flutter/core/blocs/auth_bloc.dart';
+import 'package:driver_flutter/core/extensions/extensions.dart';
+import 'package:driver_flutter/core/presentation/app_drawer.dart';
+import 'package:driver_flutter/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_common/core/color_palette/color_palette.dart';
-import 'package:driver_flutter/core/blocs/auth_bloc.dart';
-import 'package:driver_flutter/core/extensions/extensions.dart';
 import 'package:flutter_common/core/presentation/avatars/app_avatar_compact.dart';
-import 'package:driver_flutter/core/presentation/app_drawer.dart';
-import 'package:driver_flutter/gen/assets.gen.dart';
 
 class NavigationScreenDesktop extends StatefulWidget {
   final Widget child;
