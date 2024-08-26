@@ -16,7 +16,7 @@ dependencies:
   ionicons: ^0.2.2
   latlong2: ^0.9.1
   generic_map:
-    path: ../generic_map
+      path: ../generic_map
   flutter_localizations:
     sdk: flutter
   cached_network_image: ^3.3.0
@@ -59,3 +59,16 @@ flutter:
 flutter_gen:
   integrations:
     lottie: true
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Roboto-BoldItalic.ttf
+          weight: 700
+          style: italic

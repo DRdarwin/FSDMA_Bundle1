@@ -12,7 +12,7 @@ class Constants {
   static final CountryCode defaultCountry = CountryCode.parseByIso('US');
 
   static MapBoxProvider get mapBoxProvider => MapBoxProvider(
-        secretKey: "pk.eyJ1Ijoic3RyYXRvc3BhcmUiLCJhIjoiY20wNmdxYWdsMHpzYzJqczRqdjU4Z250bCJ9.tu2MaNHpzkFbZtV2EfYiTQ",
+        secretKey: "",
         userId: "mapbox",
         tileSetId: "streets-v12",
       );

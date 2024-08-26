@@ -1,6 +1,6 @@
 name: driver_flutter
 description: Driver app for ride-sharing
-publish_to: "none"
+
 
 version: 3.1.17+256
 

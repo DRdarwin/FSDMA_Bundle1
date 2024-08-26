@@ -34,7 +34,7 @@ abstract class _$AppRouter extends RootStackRouter {
     AuthRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AuthScreen(),
+        child: AuthScreen(),
       );
     },
     EarningsRoute.name: (routeData) {

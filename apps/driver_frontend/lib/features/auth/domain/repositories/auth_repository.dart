@@ -1,15 +1,15 @@
-
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:dartz/dartz.dart';
 import 'package:driver_flutter/core/entities/profile.dart';
 import 'package:driver_flutter/core/entities/profile_full.dart';
 import 'package:driver_flutter/core/error/failure.dart';
 import 'package:driver_flutter/features/auth/domain/entities/registration_remote_data.dart';
 import 'package:flutter_common/core/enums/gender.dart';
+import 'package:google_sign_in/google_sign_in.dart'
+    show GoogleSignIn, GoogleSignInAccount;
+import 'package:sign_in_with_apple/sign_in_with_apple.dart'
+    show AppleIDAuthorizationScopes, SignInWithApple;
 
-
-import '../entities/verify_number_response.dart';
+import '../entities/verify_number_response.dart' show VerifyNumberResponse;
 import '../entities/verify_otp_response.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -31,7 +31,7 @@ void _handleGoogleSignIn() async {
 }
 
 void _handleAppleSignIn() async {
-  final credential = await SignInWithApple.getAppleIDCredential(
+  await SignInWithApple.getAppleIDCredential(
     scopes: [
       AppleIDAuthorizationScopes.email,
       AppleIDAuthorizationScopes.fullName,
@@ -40,7 +40,6 @@ void _handleAppleSignIn() async {
 
   // Handle the credential data
 }
-
 
 abstract class AuthRepository {
   Future<Either<Failure, VerifyNumberResponse>> verifyNumber({

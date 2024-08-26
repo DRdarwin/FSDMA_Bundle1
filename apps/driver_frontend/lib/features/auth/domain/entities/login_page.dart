@@ -1,6 +1,13 @@
 
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:driver_flutter/core/entities/profile.dart';
+import 'package:driver_flutter/core/extensions/extensions.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'login_page.freezed.dart';
+part 'login_page.g.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: [
@@ -16,7 +23,6 @@ void _handleGoogleSignIn() async {
       // Handle post-authentication logic
     }
   } catch (error) {
-    print('Error during Google Sign-In: \$error');
   }
 }
 
@@ -31,14 +37,6 @@ void _handleAppleSignIn() async {
   // Handle the credential data
 }
 
-
-import 'package:driver_flutter/core/entities/profile.dart';
-import 'package:driver_flutter/core/extensions/extensions.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'login_page.freezed.dart';
-part 'login_page.g.dart';
 
 @freezed
 sealed class LoginPage with _$LoginPage {

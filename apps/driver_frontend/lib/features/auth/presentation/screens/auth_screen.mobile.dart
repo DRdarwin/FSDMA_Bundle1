@@ -1,147 +1,132 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:driver_flutter/config/locator/locator.dart';
+import 'package:driver_flutter/core/blocs/auth_bloc.dart';
 import 'package:driver_flutter/core/blocs/onboarding_cubit.dart';
-import 'package:driver_flutter/core/extensions/extensions.dart';
-import 'package:driver_flutter/core/presentation/wizard_steps/wizard_steps.dart';
-import 'package:driver_flutter/features/auth/domain/entities/login_page.dart';
+import 'package:driver_flutter/core/router/app_router.dart';
+import 'package:driver_flutter/features/auth/presentation/blocs/login.dart';
+import 'package:driver_flutter/features/auth/presentation/screens/onboarding_screen.mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_common/core/extensions/extensions.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart' show AppleIDAuthorizationScopes, SignInWithApple;
 
-ElevatedButton.icon(
-  onPressed = () {
-    // Handle Google Sign-In
-    _handleGoogleSignIn();
-  },
-  icon = Image.asset(
-    'assets/google_icon.png',
-    height: 24.0,
-    width: 24.0,
-  ),
-  label = const Text('Sign in with Google'),
-),
+// Ініціалізація GoogleSignIn
+final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
+// Функція для обробки входу через Google
+Future<void> _handleGoogleSignIn(BuildContext context) async {
+  try {
+    final GoogleSignInAccount? account = await _googleSignIn.signIn();
+    if (account != null) {
+      // Успішний вхід через Google
+      // Обробка логіки після аутентифікації
+      print('Google Sign-In successful: ${account.email}');
+    }
+  } catch (error) {
+    print('Error during Google Sign-In: $error');
+  }
+}
 
-ElevatedButton.icon(
-  onPressed = () {
-    // Handle Apple Sign-In
-    _handleAppleSignIn();
-  },
-  icon = const Icon(
-    Icons.apple,
-    color: Colors.black,
-    size: 24.0,
-  ),
-  label = const Text('Sign in with Apple'),
-),
-
-import 'package:flutter_common/core/color_palette/color_palette.dart';
-import 'package:flutter_common/core/presentation/app_step_slider.dart';
-import 'package:flutter_common/core/presentation/buttons/app_back_button.dart';
-
-import '../blocs/login.dart';
-import '../widgets/login_form_builder.dart';
+// Функція для обробки входу через Apple
+Future<void> _handleAppleSignIn(BuildContext context) async {
+  try {
+    final credential = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+    );
+    // Обробка даних облікових даних
+    print('Apple Sign-In successful: ${credential.email}');
+  } catch (error) {
+    print('Error during Apple Sign-In: $error');
+  }
+}
 
 class AuthScreenMobile extends StatelessWidget {
-  const AuthScreenMobile({super.key});
+  const AuthScreenMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorPalette.neutralVariant99,
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            color: ColorPalette.primary99,
-            child: SafeArea(
-              bottom: false,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  BlocBuilder<LoginBloc, LoginState>(
-                    builder: (context, state) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 16, left: 16),
-                        child: AppBackButton(
-                          onPressed: () {
-                            switch (state.loginPage) {
-                              case EnterNumberPage():
-                                locator<OnboardingCubit>().previousPage();
-                                break;
-
-                              default:
-                                locator<LoginBloc>().onBackPressed();
-                            }
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                  Center(
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: BlocBuilder<LoginBloc, LoginState>(
-                        buildWhen: (currentState, nextState) => currentState.loginPage != nextState.loginPage,
-                        builder: (context, state) => LoginFormBuilder(
-                          loginState: state,
-                        ).header,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+    final onboardingCubit = locator<OnboardingCubit>();
+    return PopScope(
+      canPop: false,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider.value(
+            value: locator<OnboardingCubit>(),
           ),
-          BlocBuilder<LoginBloc, LoginState>(
-            buildWhen: (currentState, nextState) => currentState.loginPage != nextState.loginPage,
-            builder: (context, state) {
-              return Column(
-                children: [
-                  if (state.loginPage.loginStep != null)
-                    Container(
-                      width: 185,
-                      margin: const EdgeInsets.all(16),
-                      child: AppStepSlider(
-                        count: 4,
-                        currentStep: state.loginPage.loginStep!,
-                      ),
-                    ),
-                  if (state.loginPage.wizardStep != null)
-                    Container(
-                      width: 300,
-                      padding: const EdgeInsets.all(8),
-                      child: WizardSteps(
-                        count: 5,
-                        selectedStep: state.loginPage.wizardStep ?? 0,
-                      ),
-                    ),
-                  Text(
-                    state.loginPage.title(context),
-                    style: context.titleLarge,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  )
-                ],
-              );
-            },
-          ),
-          Expanded(
-            child: SafeArea(
-              top: false,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: BlocBuilder<LoginBloc, LoginState>(
-                    builder: (context, state) => LoginFormBuilder(loginState: state).footer,
-                  ),
-                ),
-              ),
-            ),
+          BlocProvider.value(
+            value: locator<LoginBloc>(),
           ),
         ],
+        child: BlocListener<LoginBloc, LoginState>(
+          listener: (context, state) {
+            if (state.jwtToken != null) {
+              locator<AuthBloc>().onLoggedIn(
+                jwtToken: state.jwtToken!,
+                profile: state.profileFullEntity!.toEntity,
+              );
+            }
+            state.loginPage.mapOrNull(
+              success: (value) {
+                locator<AuthBloc>().onLoggedIn(
+                  jwtToken: state.jwtToken!,
+                  profile: value.profile,
+                );
+                locator<OnboardingCubit>().skip();
+                locator<LoginBloc>().clear();
+                locator<LoginBloc>().reset();
+                context.router.replaceAll(
+                  [
+                    const HomeRoute(),
+                  ],
+                );
+              },
+            );
+          },
+          child: context.responsive(
+            BlocBuilder<OnboardingCubit, int>(
+                builder: (context, stateOnboarding) {
+              return onboardingCubit.isDone
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _buildGoogleSignInButton(context),
+                        const SizedBox(height: 16),
+                        _buildAppleSignInButton(context),
+                      ],
+                    )
+                  : const OnboardingScreen();
+            }),
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget _buildGoogleSignInButton(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () => _handleGoogleSignIn(context),
+      icon: Image.asset(
+        'assets/google_icon.png',
+        height: 24.0,
+        width: 24.0,
+      ),
+      label: const Text('Sign in with Google'),
+    );
+  }
+
+  Widget _buildAppleSignInButton(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () => _handleAppleSignIn(context),
+      icon: const Icon(
+        Icons.apple,
+        color: Colors.black,
+        size: 24.0,
+      ),
+      label: const Text('Sign in with Apple'),
     );
   }
 }
