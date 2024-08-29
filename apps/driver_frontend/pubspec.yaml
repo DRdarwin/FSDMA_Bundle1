@@ -5,17 +5,20 @@ description: Driver app for ride-sharing
 version: 3.1.17+256
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=1.17.0"
 dependencies:
   flutter:
     sdk: flutter
 
   freezed_annotation: ^2.4.1
+  web: ^1.0.0
 
   # Geo
   latlong2: ^0.9.0
-  geolocator: ^12.0.0
+  geolocator: ^13.0.1
+  analyzer: ^6.0.0
+
 
   # Localization
   flutter_localizations:
@@ -50,10 +53,10 @@ dependencies:
   flutter_ringtone_player: ^4.0.0+3
 
   # Firebase
-  firebase_analytics: ^11.2.1
-  firebase_core: ^3.3.0
+  firebase_analytics: ^11.3.0
+  firebase_core: ^3.4.0
   firebase_crashlytics: ^4.0.4
-  firebase_messaging: ^15.0.4
+  firebase_messaging: ^15.1.0
 
   # UI
   ionicons: 0.2.2
@@ -68,28 +71,30 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Network
-  graphql: ^5.2.0-beta.7
+  graphql: ^5.2.0-beta.8
   cached_network_image: ^3.3.0
-  collection: ^1.17.2
+  collection: ^1.19.0
   dotted_line: ^3.2.2
   gauge_indicator: ^0.4.3
-  map_launcher: ^3.2.0
-  share_plus: ^10.0.0
+  map_launcher: ^3.5.0  
+  share_plus: ^10.0.2
   location: ^7.0.0
   package_info_plus: ^8.0.2
   maps_toolkit: ^3.0.0
   wakelock_plus: ^1.2.1
   google_sign_in: ^6.2.1
   sign_in_with_apple: ^6.1.1
+  flutter_map: ^7.0.2
+
 
 dev_dependencies:
-  auto_route_generator: ^8.0.0
-  build_runner: ^2.4.9
+  auto_route_generator: ^9.0.0
+  build_runner: ^2.4.12  
   build_web_compilers: ^4.0.10
   flutter_gen_runner: ^5.4.0
   flutter_gen: ^5.4.0
   flutter_lints: ^4.0.0
-  injectable_generator: ^2.6.1
+  injectable_generator: ^2.6.2
   build_verify: ^3.1.0
   graphql_codegen: 0.14.0
   freezed: ^2.4.6
@@ -100,9 +105,10 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  analyzer: ^6.0.0
-  flutter_map: ^7.0.0
-  
+  collection: ^1.18.0
+  auto_route: ^8.0.2
+  web: ^0.5.1
+
 
 flutter:
   uses-material-design: true
