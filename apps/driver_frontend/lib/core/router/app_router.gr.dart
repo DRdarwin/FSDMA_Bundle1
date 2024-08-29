@@ -4,8 +4,7 @@
 // AutoRouterGenerator
 // **************************************************************************
 
-// ignore_for_file: type=lint
-// coverage:ignore-file
+import 'package:auto_route/auto_route.dart'; // Add this import statement
 
 part of 'app_router.dart';
 

@@ -4,8 +4,8 @@ version: 0.1.5
 # publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.5.1 <4.0.0"
+  flutter: ">=3.24.1"
 
 dependencies:
   google_maps_flutter: ^2.6.1
@@ -36,3 +36,4 @@ dependency_overrides:
   
 flutter:
   generate: true
+  uses-material-design: true

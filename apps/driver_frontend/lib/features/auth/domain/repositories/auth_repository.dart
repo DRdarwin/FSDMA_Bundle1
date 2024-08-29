@@ -18,7 +18,7 @@ final GoogleSignIn _googleSignIn = GoogleSignIn(
   ],
 );
 
-void _handleGoogleSignIn() async {
+void handleGoogleSignIn() async {
   try {
     GoogleSignInAccount? account = await _googleSignIn.signIn();
     if (account != null) {
@@ -30,7 +30,7 @@ void _handleGoogleSignIn() async {
   }
 }
 
-void _handleAppleSignIn() async {
+void handleAppleSignIn() async {
   await SignInWithApple.getAppleIDCredential(
     scopes: [
       AppleIDAuthorizationScopes.email,

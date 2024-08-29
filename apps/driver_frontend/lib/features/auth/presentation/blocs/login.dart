@@ -6,7 +6,7 @@ import 'package:driver_flutter/features/auth/domain/entities/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_common/core/entities/media.dart';
 import 'package:flutter_common/core/enums/gender.dart';
-import 'package:flutter_common/core/theme/theme.dart'; // Виправлений шлях до вашого файлу з темами
+// import 'package:flutter_common/core/theme/theme.dart'; // Виправлений шлях до вашого файлу з темами
 import 'package:flutter_common/features/country_code_dialog/country_code.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -27,7 +27,7 @@ final GoogleSignIn _googleSignIn = GoogleSignIn(
   ],
 );
 
-void _handleGoogleSignIn(BuildContext context) async {
+void handleGoogleSignIn(BuildContext context) async {
   try {
     GoogleSignInAccount? account = await _googleSignIn.signIn();
     if (account != null) {

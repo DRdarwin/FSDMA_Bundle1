@@ -1,10 +1,10 @@
 name: rider_flutter
 description: Ride-sharing
 
-version: 3.1.17+257
+version: 3.25.0-0.1.pre
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ">=3.5.1 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter

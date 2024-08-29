@@ -2,10 +2,10 @@ name: driver_flutter
 description: Driver app for ride-sharing
 
 
-version: 3.1.17+256
+version: 3.25.0-0.1.pre
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ">=3.5.1 <4.0.0"
   flutter: ">=1.17.0"
 dependencies:
   flutter:
@@ -34,7 +34,7 @@ dependencies:
   injectable: ^2.4.1
 
   # Routing
-  auto_route: ^8.0.2
+  auto_route: ^9.2.2
 
   # Local storage
   hive: ^2.2.3
@@ -76,7 +76,7 @@ dependencies:
   collection: ^1.19.0
   dotted_line: ^3.2.2
   gauge_indicator: ^0.4.3
-  map_launcher: ^3.5.0  
+  map_launcher: ^3.5.0
   share_plus: ^10.0.2
   location: ^7.0.0
   package_info_plus: ^8.0.2
@@ -89,7 +89,7 @@ dependencies:
 
 dev_dependencies:
   auto_route_generator: ^9.0.0
-  build_runner: ^2.4.12  
+  build_runner: ^2.4.12
   build_web_compilers: ^4.0.10
   flutter_gen_runner: ^5.4.0
   flutter_gen: ^5.4.0
@@ -105,9 +105,8 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  collection: ^1.18.0
-  auto_route: ^8.0.2
   web: ^0.5.1
+  collection: ^1.18.0
 
 
 flutter:
