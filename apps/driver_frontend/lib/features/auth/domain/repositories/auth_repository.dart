@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dart/dart.dart';
 import 'package:driver_flutter/core/entities/profile.dart';
 import 'package:driver_flutter/core/entities/profile_full.dart';
 import 'package:driver_flutter/core/error/failure.dart';
