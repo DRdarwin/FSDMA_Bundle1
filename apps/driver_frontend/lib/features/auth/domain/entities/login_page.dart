@@ -1,9 +1,9 @@
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:driver_flutter/core/entities/profile.dart';
 import 'package:driver_flutter/core/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 part 'login_page.freezed.dart';
 part 'login_page.g.dart';
@@ -14,7 +14,7 @@ final GoogleSignIn _googleSignIn = GoogleSignIn(
   ],
 );
 
-void _handleGoogleSignIn() async {
+void handleGoogleSignIn() async {
   try {
     GoogleSignInAccount? account = await _googleSignIn.signIn();
     if (account != null) {
@@ -25,8 +25,8 @@ void _handleGoogleSignIn() async {
   }
 }
 
-void _handleAppleSignIn() async {
-  final credential = await SignInWithApple.getAppleIDCredential(
+void handleAppleSignIn() async {
+  await SignInWithApple.getAppleIDCredential(
     scopes: [
       AppleIDAuthorizationScopes.email,
       AppleIDAuthorizationScopes.fullName,
