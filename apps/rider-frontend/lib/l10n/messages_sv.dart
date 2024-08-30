@@ -2,8 +2,6 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Swedish (`sv`).
 class SSv extends S {
   SSv([String locale = 'sv']) : super(locale);

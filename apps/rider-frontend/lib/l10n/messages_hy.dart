@@ -2,8 +2,6 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Armenian (`hy`).
 class SHy extends S {
   SHy([String locale = 'hy']) : super(locale);

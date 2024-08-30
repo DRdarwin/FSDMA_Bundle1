@@ -2,8 +2,6 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Vietnamese (`vi`).
 class SVi extends S {
   SVi([String locale = 'vi']) : super(locale);

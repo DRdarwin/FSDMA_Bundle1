@@ -2,6 +2,8 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Romanian Moldavian Moldovan (`ro`).
 class SRo extends S {
   SRo([String locale = 'ro']) : super(locale);
@@ -1107,4 +1109,25 @@ class SRo extends S {
 
   @override
   String get noticeRiderNotified => 'Călărețul a fost anunțat, ridicați călărețul și începeți călătoria';
+
+  @override
+  String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
+
+  @override
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
+
+  @override
+  String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
+
+  @override
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
+
+  @override
+  String get rider => 'Rider';
+
+  @override
+  String get customer => 'Customer';
+
+  @override
+  String get back => 'Back';
 }

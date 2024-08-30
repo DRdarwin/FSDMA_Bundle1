@@ -2,6 +2,8 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Finnish (`fi`).
 class SFi extends S {
   SFi([String locale = 'fi']) : super(locale);
@@ -1107,4 +1109,25 @@ class SFi extends S {
 
   @override
   String get noticeRiderNotified => 'Ratsastajalle on ilmoitettu, ota ratsastaja ja aloita matka';
+
+  @override
+  String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
+
+  @override
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
+
+  @override
+  String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
+
+  @override
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
+
+  @override
+  String get rider => 'Rider';
+
+  @override
+  String get customer => 'Customer';
+
+  @override
+  String get back => 'Back';
 }

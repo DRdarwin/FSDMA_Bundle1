@@ -2,6 +2,8 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Thai (`th`).
 class STh extends S {
   STh([String locale = 'th']) : super(locale);
@@ -1107,4 +1109,25 @@ class STh extends S {
 
   @override
   String get noticeRiderNotified => 'ผู้ขับขี่ได้รับแจ้งแล้ว ให้รับผู้ขับขี่และเริ่มการเดินทาง';
+
+  @override
+  String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
+
+  @override
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
+
+  @override
+  String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
+
+  @override
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
+
+  @override
+  String get rider => 'Rider';
+
+  @override
+  String get customer => 'Customer';
+
+  @override
+  String get back => 'Back';
 }

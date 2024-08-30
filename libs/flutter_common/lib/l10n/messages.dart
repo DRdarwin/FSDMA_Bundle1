@@ -35,6 +35,8 @@ import 'messages_ur.dart';
 import 'messages_vi.dart';
 import 'messages_zh.dart';
 
+// ignore_for_file: type=lint
+
 /// Callers can lookup localized strings with an instance of S
 /// returned by `S.of(context)`.
 ///
@@ -2164,6 +2166,48 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Rider has been notified, Pickup the rider and start the ride'**
   String get noticeRiderNotified;
+
+  /// No description provided for @adminPanelOnboardingOneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to better suite'**
+  String get adminPanelOnboardingOneTitle;
+
+  /// No description provided for @adminPanelOnboardingOneSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unleash the Power of Your Q-Commerce'**
+  String get adminPanelOnboardingOneSubtitle;
+
+  /// No description provided for @adminPanelOnboardingTwoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Streamline your operations'**
+  String get adminPanelOnboardingTwoTitle;
+
+  /// No description provided for @adminPanelOnboardingTwoSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Take Control with Our Centralized Super Panel'**
+  String get adminPanelOnboardingTwoSubtitle;
+
+  /// No description provided for @rider.
+  ///
+  /// In en, this message translates to:
+  /// **'Rider'**
+  String get rider;
+
+  /// No description provided for @customer.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer'**
+  String get customer;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

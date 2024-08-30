@@ -2,8 +2,6 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Malay (`ms`).
 class SMs extends S {
   SMs([String locale = 'ms']) : super(locale);

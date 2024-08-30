@@ -35,8 +35,6 @@ import 'messages_ur.dart';
 import 'messages_vi.dart';
 import 'messages_zh.dart';
 
-// ignore_for_file: type=lint
-
 /// Callers can lookup localized strings with an instance of S
 /// returned by `S.of(context)`.
 ///

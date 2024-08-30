@@ -2,8 +2,6 @@ import 'package:intl/intl.dart' as intl;
 
 import 'messages.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Norwegian (`no`).
 class SNo extends S {
   SNo([String locale = 'no']) : super(locale);
